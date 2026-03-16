@@ -1,0 +1,62 @@
+Given a list of non-negative integers nums, arrange them such that they form the largest number and return it.
+
+Since the result may be very large, so you need to return a string instead of an integer.
+
+ 
+
+Example 1:
+
+Input: nums = [10,2]
+Output: "210"
+Example 2:
+
+Input: nums = [3,30,34,5,9]
+Output: "9534330"
+ 
+
+Constraints:
+
+1 <= nums.length <= 100
+0 <= nums[i] <= 10^9
+
+
+
+class Solution {
+public:
+    int digitNumber(int n){
+        int x = n;
+        int result = 0;
+        while(x > 0){
+            x = x / 10;
+            result++;
+        }
+        return result;
+    }
+    string largestNumber(vector<int>& nums) {
+        string ans = "";
+        ans = ans +  to_string(nums[nums.size() -1]);
+        for(int i = nums.size() -2; i >= 0 ;i--){
+            // int n = digitNumber(nums[i]);
+
+            // cout << n << endl;
+            int x = nums[i];
+            // if(x > 10 )
+            // {
+            //     while(x > 0){
+            //         x = x / 10;
+            //         if(x <= 0){
+            //             x= x*10;
+            //             ans= ans + to_string(x);
+            //             break;
+            //         } else {
+            //             ans= ans + to_string(x);
+            //         }
+                    
+            //     }
+            // } else{
+                ans= ans + to_string(x);
+            // }
+        }
+        return ans;
+    }
+};
