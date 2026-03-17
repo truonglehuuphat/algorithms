@@ -60,3 +60,75 @@ public:
         return ans;
     }
 };
+
+nhận ra các số so sánh theo ký tự đầu tiên nào lớn nhất thì xếp cuối 
+
+class Solution {
+public:
+    string findMaxNumInStr(string str1, string str2){
+        string res;
+        for(int i = 0; i < str1.length(); i++){
+            // cout << str1[i] << " " << str2[i] << endl;
+            if((str1[i]-48) < (str2[i]-48)){
+                return str2;
+            } else if((str1[i]-48) > (str2[i]-48)){
+                return str1;
+            } else{
+
+            }
+        }
+        return str1;
+    }
+    vector<int> sortFirstChar(vector<int>& nums){
+        // vector<int> res;
+        for(int i = 0; i < nums.size()-1; i++){
+            for(int j = 0; j < nums.size()-1;j++){
+                string a = to_string(nums[j]);
+                string b = to_string(nums[j+1]);
+                // if(a >= 10 ) {a = a/10;}
+                // if(b >= 10 ) {b = b/10;}
+                if(a[0] > b[0] ){
+                    int temp = nums[j];
+                    nums[j] = nums[j+1];
+                    nums[j+1] = temp;
+                }
+            }
+        }
+        return nums;
+    }
+    string largestNumber(vector<int>& nums) {
+        if (nums.size() == 1) return to_string(nums[0]);
+        sortFirstChar(nums);
+        for(int n : nums){
+            cout << n << " ";
+        }
+        cout << "\n";
+        string a = to_string(nums[0]) + to_string(nums[1]);
+        string b = to_string(nums[1]) + to_string(nums[0]);
+        string max = findMaxNumInStr(a, b);
+        cout << max << " ";
+        // for(int i = 2; i < nums.size() ;i++){
+        //     a = max + to_string(nums[i]);
+        //     b = to_string( nums[i]) + max;
+        //     max = findMaxNumInStr(a, b);
+        //     cout << max << " ";
+        // }
+        // cout << "\n";
+        for(int i = 2; i < nums.size() ;i++){
+            a = max + to_string(nums[i]);
+            b = to_string( nums[i]) + max;
+            max = findMaxNumInStr(a, b);
+            cout << max << " ";
+        }
+        return max;
+    }
+};
+
+nhưng phép so sánh ở trên gặp mãng [16 1 128] ghi sai 
+
+1, 16, 128 = 161281 > 161128 > 128161 > 128116
+
+Dường như nó so sánh giá trị số 2 
+
+
+
