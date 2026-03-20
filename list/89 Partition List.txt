@@ -1,0 +1,59 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+
+    void intList(ListNode * head, int value){
+        if(head == NULL){
+            head = new ListNode(value);
+            return;
+        }
+    }
+    void addNode(ListNode * head, int value){
+        if(head == NULL){
+            head = new ListNode(value);
+            return;
+        }
+        ListNode * listHead = head;
+        while(listHead){
+            listHead=listHead->next;
+        }
+        ListNode *newNode = new ListNode(value);
+        listHead->next = newNode;
+    }
+
+    ListNode* partition(ListNode* head, int x) {
+        if(head == NULL) {return NULL;}
+        vector<int> arr;
+    
+        for(ListNode * tempNode = head; tempNode != NULL; tempNode= tempNode->next){
+            arr.push_back(tempNode->val);
+        }
+        sort(arr.begin(), arr.end());
+        for(int i = 0; i < arr.size()-1; i++){
+            if(arr[i] == x){
+                int temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+                break;
+            }
+        }
+
+        ListNode *headList = new ListNode(arr[0]);
+        ListNode *resList = headList; 
+        for(int i = 1 ; i < arr.size(); i++){
+            ListNode *newNode = new ListNode(arr[i]);
+            headList->next=newNode;
+            headList= headList->next;
+        }
+        return resList;
+    }
+};
