@@ -374,3 +374,44 @@ public:
         return NULL;
     }
 };
+
+
+class Solution {
+public:
+
+    TreeNode* sortedListToBST(ListNode* head) {
+        return sortedListToBST(head, NULL);
+    }
+private:
+    TreeNode* sortedListToBST(ListNode * head, ListNode * tail){
+        if(head == tail) return NULL;
+        ListNode * slow = head, *mid = head, *temp = head;
+        while(temp != tail && temp->next != tail ){
+            slow = slow->next;
+            temp=temp->next->next;
+        }
+        TreeNode * midNode = new TreeNode(slow->val) ;
+        midNode->left = sortedListToBST(head, slow);
+        midNode->right = sortedListToBST(slow->next,tail);
+        return midNode;
+    }
+
+};
+
+class Solution {
+    public TreeNode sortedListToBST(ListNode head) {
+        return sortedListToBST(head, null);
+    }
+    private TreeNode sortedListToBST(ListNode head, ListNode tail){
+        if(head == tail) return null;
+        ListNode slow = head, fast = head;
+        while(fast != tail && fast.next != tail){
+            slow = slow.next;
+            fast= fast.next.next;
+        }
+        TreeNode newTreeNode = new TreeNode(slow.val);
+        newTreeNode.left = sortedListToBST(head, slow);
+        newTreeNode.right = sortedListToBST(slow.next, tail);
+        return newTreeNode;
+    }
+}
