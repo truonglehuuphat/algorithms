@@ -11,8 +11,9 @@ class Solution {
         Collections.sort(arr);
         int min = 10000;
         for(int i = 0 ; i < arr.size()-1; i++){
-            for(int j = i+1; j <  arr.size(); j++){
-                int temp =  subtime(arr.get(i), arr.get(j));
+            for(int j = i + 1; j <  arr.size(); j++){
+                // int temp =  subtime(arr.get(i), arr.get(j));
+                int temp = Math.min(Math.abs(arr.get(i) - arr.get(j)), 24*60 - Math.abs(arr.get(i) - arr.get(j)));
                 if( temp < min) {
                     min = temp;
                 }
@@ -20,7 +21,7 @@ class Solution {
         }
         return min;
     }
-    int subtime(int time1, int time2){
-        return Math.min(Math.abs(time1 - time2), 24*60 - Math.abs(time1 - time2));
-    }
+    // int subtime(int time1, int time2){
+    //     return Math.min(Math.abs(time1 - time2), 24*60 - Math.abs(time1 - time2));
+    // }
 }
