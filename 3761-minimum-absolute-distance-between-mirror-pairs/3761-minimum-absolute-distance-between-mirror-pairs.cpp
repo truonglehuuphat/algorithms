@@ -4,17 +4,19 @@ public:
         int digit = 0;
         int sum = 0;
         int n = x;
-        string s = "";
+        // string s = "";
         while(n > 0){
-            digit = n % 10;
-            s = s + to_string(digit);
+            // digit = n % 10;
+            // s = s + to_string(digit);
+            sum = sum*10 + n %10;
             n = n /10;
         }
-        if(s[0] == '0'){
-           s.erase(s.begin()+0);
-        }
+        // if(s[0] == '0'){
+        //    s.erase(s.begin()+0);
+        // }
         // cout << "reverseNum " << s << endl;
-        return stoi(s);
+        // return stoi(s);
+        return sum;
     }
     int minMirrorPairDistance(vector<int>& nums) {
         int len = nums.size();
