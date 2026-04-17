@@ -1,7 +1,7 @@
 class Solution {
 public:
     int reverseNum(int x){
-        int digit = 0;
+        // int digit = 0;
         int sum = 0;
         int n = x;
         // string s = "";
