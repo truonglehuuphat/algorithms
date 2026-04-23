@@ -17,24 +17,17 @@ public:
         ListNode * preNode;
         while(currNode != NULL && currNode->next != NULL){
             ListNode * nextNode = currNode->next;
-            // cout << "currNodeVal " << currNode->val << " nextvalue: " << nextNode->val << endl;
             if(head == currNode){
                 head = nextNode;
-       
             }else{
                 preNode->next = nextNode;   
-            }
+            }   
                 currNode->next = nextNode->next;
                 nextNode->next = currNode;
                 preNode = currNode;
                 currNode = currNode->next;    
-            // nextNode = currNode->next;
+        
         }
-        // if(currNode != NULL && currNode->next == NULL){
-        //     ListNode * nextNode = currNode->next;
-        //     currNode->next = NULL;
-        //     nextNode->next = currNode;
-        // }
         return head;
     }
 };
