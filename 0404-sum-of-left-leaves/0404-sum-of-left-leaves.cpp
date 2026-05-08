@@ -11,23 +11,33 @@
  */
 class Solution {
 public:
-    
-    int sumOfLeftLeaves(TreeNode* root) {
-        stack<pair<TreeNode*, bool>> st;
-        st.push({root,false});
-        int ans =0;
-        while(!st.empty()){
-            auto [cur, isLeft] = st.top(); st.pop();
-            if(!cur->left && !cur->right && isLeft){
-                ans+= cur->val;
-            }
-            if(cur->left){
-                st.push({cur->left,true});
-            }
-            if(cur->right){
-                st.push({cur->right,false});
-            }
+    int dfs(TreeNode * root, bool isLeft){
+        if(!root) return 0;
+        if(!root->left && !root->right && isLeft){
+                return root->val;
         }
-        return ans;
+        return dfs(root->left, true) +   dfs(root->right, false);
     }
+
+    int sumOfLeftLeaves(TreeNode* root) {
+        return dfs(root,false);
+    }
+    // int sumOfLeftLeaves(TreeNode* root) {
+    //     stack<pair<TreeNode*, bool>> st;
+    //     st.push({root,false});
+    //     int ans =0;
+    //     while(!st.empty()){
+    //         auto [cur, isLeft] = st.top(); st.pop();
+    //         if(!cur->left && !cur->right && isLeft){
+    //             ans+= cur->val;
+    //         }
+    //         if(cur->left){
+    //             st.push({cur->left,true});
+    //         }
+    //         if(cur->right){
+    //             st.push({cur->right,false});
+    //         }
+    //     }
+    //     return ans;
+    // }
 };
