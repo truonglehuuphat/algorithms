@@ -8,7 +8,7 @@ class Solution {
             } else {
                 if(ans.size() == 0) return false;
                 char chk = ans.get(ans.size() - 1);
-                System.out.println(chk + " " + c);
+                // System.out.println(chk + " " + c);
                 if(chk == '(' && c != ')' || chk == '{' && c != '}' || chk == '[' && c != ']'){
                     return false;
                 } else {
