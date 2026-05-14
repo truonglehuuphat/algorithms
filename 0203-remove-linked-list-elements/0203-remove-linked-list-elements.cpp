@@ -19,7 +19,7 @@ public:
         ListNode* pre = NULL;
         ListNode* cur = head;
         // node o giua
-        // while(cur != NULL && cur->next != NULL){
+        // node o cuoi
         while(cur != NULL ){
             if(cur->val == val){
                 pre->next = cur->next;
@@ -28,10 +28,6 @@ public:
             }
             cur = cur->next;
         }
-        // node o cuoi
-        // if(cur != NULL && cur->val == val){
-        //    pre->next = NULL;
-        // }
         return head;
     }
 };
