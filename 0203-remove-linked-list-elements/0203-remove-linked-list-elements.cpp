@@ -12,7 +12,6 @@ class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
         // node dau tien
-        // if(head == NULL) return NULL;
         while(head != NULL && head->val == val) {
             head = head->next;
         }
@@ -20,19 +19,19 @@ public:
         ListNode* pre = NULL;
         ListNode* cur = head;
         // node o giua
-        
-        while(cur != NULL && cur->next != NULL){
+        // while(cur != NULL && cur->next != NULL){
+        while(cur != NULL ){
             if(cur->val == val){
                 pre->next = cur->next;
             } else {
                 pre = cur;
             }
-            cur = cur->next; 
+            cur = cur->next;
         }
         // node o cuoi
-        if(cur != NULL && cur->val == val){
-           pre->next = NULL;
-        }
+        // if(cur != NULL && cur->val == val){
+        //    pre->next = NULL;
+        // }
         return head;
     }
 };
