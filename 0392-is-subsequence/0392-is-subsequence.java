@@ -4,13 +4,13 @@ class Solution {
         char[] cT = t.toCharArray();
         int i =0, j = 0;
         int n = s.length(), m = t.length();
+        if(n == 0) return true;
         while(i < n && j < m){
             if(cS[i] == cT[j]){
                 i++;
             } 
             j++;
         }
-        
         return i == n;
     }
 }
