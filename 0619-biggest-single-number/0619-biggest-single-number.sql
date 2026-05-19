@@ -1,0 +1,11 @@
+-- # Write your MySQL query statement below
+SELECT MAX(num) as num
+FROM MyNumbers
+Where num NOT IN (
+    SELECT num FROM MyNumbers GROUP BY num HAVING COUNT(num) >= 2
+)
+
+-- SELECT num 
+-- FROM MyNumbers
+-- GROUP BY num 
+-- HAVING COUNT(num) >= 2
