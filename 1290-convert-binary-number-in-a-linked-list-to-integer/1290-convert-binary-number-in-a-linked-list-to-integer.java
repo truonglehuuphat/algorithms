@@ -22,10 +22,10 @@ class Solution {
         }
         while(!qt.isEmpty()){
             ans = qt.poll();
-            System.out.println(ans + " " + size);
+            // System.out.println(ans + " " + size);
             if(ans == 1){
                 res += Math.pow(2,size);
-                System.out.println(" "+ans);
+                // System.out.println(" "+ans);
             } 
             size = size-1;
         }
