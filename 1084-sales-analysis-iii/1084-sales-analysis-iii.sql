@@ -19,9 +19,9 @@
 -- WHERE CTE1.product_id NOT IN (SELECT CTE2.product_id FROM CTE2);
 
 
-SELECT p.product_id as product_id, p.product_name as product_name
+SELECT DISTINCT p.product_id as product_id, p.product_name as product_name
 FROM Product p
 JOIN Sales s
 ON p.product_id = s.product_id
 GROUP BY product_id
-HAVING MIN(s.sale_date) >= '2019-01-01' AND MAX(s.sale_date) <= '2019-03-31' AND COUNT(p.product_id) >= 1;
+HAVING MIN(s.sale_date) >= '2019-01-01' AND MAX(s.sale_date) <= '2019-03-31';
