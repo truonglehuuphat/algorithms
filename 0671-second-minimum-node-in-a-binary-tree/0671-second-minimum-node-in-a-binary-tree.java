@@ -22,10 +22,7 @@ class Solution {
         if(minSec == -1) {
             minSec = minFirst;
         }
-        if(minSec == minFirst && root.val > minSec){
-            minSec = root.val;
-        }
-        if(minSec > root.val && root.val != minFirst){
+        if(minSec == minFirst && root.val > minSec || minSec > root.val && root.val != minFirst){
             minSec = root.val;
         }
         travser(root.left);
