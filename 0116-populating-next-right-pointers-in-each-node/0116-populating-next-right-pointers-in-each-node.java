@@ -22,7 +22,7 @@ class Node {
 */
 
 class Solution {
-    private void dfs(Node root){
+    private void bfs(Node root){
         Queue<Node> q = new LinkedList<>();
         q.offer(root);
         while(!q.isEmpty()){
@@ -40,7 +40,7 @@ class Solution {
     }
     public Node connect(Node root) {
         if(root == null ) return null;
-        dfs(root);
+        bfs(root);
         return root;
     }
 }
