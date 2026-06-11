@@ -23,29 +23,14 @@ class Solution {
         while(!q.isEmpty()){
             int size = q.size();
             List<Integer> ans = new ArrayList<>();
-
             for(int i = 0; i < size ;i++){
                 TreeNode cur = q.poll();
                 ans.add(cur.val);
-                // System.out.println(cur.val + " " + inDirLeftToRight);
-                // if(inDirLeftToRight == true){
-                    // if(cur.right != null) q.offer(cur.right);        
-                    // if(cur.left != null) q.offer(cur.left);
-                // } else {
-                    if(cur.left != null) q.offer(cur.left);
-                    if(cur.right != null) q.offer(cur.right);
-                // }
+                if(cur.left != null) q.offer(cur.left);
+                if(cur.right != null) q.offer(cur.right);
+                
             }
-            // for(int d : ans ){
-            //     System.out.print(d + " ");
-            // }
-            // System.out.println(inDirLeftToRight);
-
-            if(inDirLeftToRight == true ) {
-            //     // Collections.sort(ans);
-                // Collections.reverse(ans);
-            } else {
-                // Collections.sort(ans, Collections.reverseOrder());
+            if(inDirLeftToRight == false ) {
                 Collections.reverse(ans);
             }
             inDirLeftToRight = inDirLeftToRight == true ? false : true;
