@@ -36,10 +36,10 @@ class Solution {
                     if(cur.right != null) q.offer(cur.right);
                 // }
             }
-            for(int d : ans ){
-                System.out.print(d + " ");
-            }
-            System.out.println(inDirLeftToRight);
+            // for(int d : ans ){
+            //     System.out.print(d + " ");
+            // }
+            // System.out.println(inDirLeftToRight);
 
             if(inDirLeftToRight == true ) {
             //     // Collections.sort(ans);
