@@ -24,7 +24,7 @@ class Solution {
         return solve(map, 0, inorder.length - 1, postorder);
     }
     private TreeNode solve( Map<Integer, Integer> map, int inStart, int inEnd, int[] postOrder){
-        if(inStart > inEnd || postEnd < 0 ) return null;
+        if(inStart > inEnd) return null;
         int val = postOrder[postEnd--];
         TreeNode root = new TreeNode(val);
         int IndexInOrder = map.get(val);
