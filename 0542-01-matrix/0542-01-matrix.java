@@ -17,14 +17,12 @@ class Solution {
         int rows = mat.length;
         int cols = mat[0].length;
         boolean[][] visited = new boolean[rows][cols];
-        Queue<Pair> q = new ArrayDeque<>();
+        Queue<Pair> q = new LinkedList<>();
         for(int i = 0 ; i < rows; i++){
             for(int j = 0 ; j < cols; j++){
                 if(mat[i][j] == 0){
                     q.offer(new Pair(i,j));
                     visited[i][j] = true;
-                } else {
-                    // mat[i][j] = -1;
                 }
             }
         }
