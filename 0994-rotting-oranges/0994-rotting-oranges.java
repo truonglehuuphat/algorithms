@@ -36,7 +36,6 @@ class Solution {
         if(q.size() == 0) return -1;
         while(!q.isEmpty()){
             int store = q.size();
-            // System.out.println("freshOrange " + freshOrange + " minutes "+ minutes);
             if(freshOrange == 0) return minutes;
             for(int z = 0; z < store; z++){
                 Pair node = q.poll();
@@ -53,10 +52,10 @@ class Solution {
                             q.offer(new Pair(new_row, new_col));
                         }
                     }
-                }          
+                }
             }
             minutes++;
         }
-        return freshOrange == 0 ? minutes: -1;
+        return -1;
     }
 }
