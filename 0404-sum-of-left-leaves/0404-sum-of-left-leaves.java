@@ -14,17 +14,15 @@
  * }
  */
 class Solution {
-    // int ans = Integer.MIN_VALUE;
-    // int pre =-1;
-    public int minDiff(TreeNode root, boolean isLeft){
+
+    private int isLeftTrue(TreeNode root, boolean isLeft){
         if(root == null) return 0;
-        if(root.left==null && root.right==null && isLeft == true){  
+        if(root.left == null && root.right == null && isLeft == true){
             return root.val;
         }
-        return minDiff(root.left, true) + minDiff(root.right, false);
+        return isLeftTrue(root.left, true) + isLeftTrue(root.right, false);
     }
     public int sumOfLeftLeaves(TreeNode root) {
-        if(root==null) return 0;
-        return minDiff(root,false);
+        return isLeftTrue(root, false);
     }
 }
