@@ -9,10 +9,10 @@ class Solution {
             int minK = Math.min(height[i], height[j]);
             int bottomK= j-i;
             are = Math.max(are,minK * bottomK);
-            if(height[i] > height[j]){
+            while(i < j && minK >= height[j]){
                 j--;
             }
-            else if(height[i] <= height[j]){
+            while(i < j && minK >= height[i]){
                 i++;
             }
             
