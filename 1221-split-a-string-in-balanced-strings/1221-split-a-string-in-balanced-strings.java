@@ -10,6 +10,8 @@ class Solution {
                 countR++;
             }
             if(countL==countR){
+                countL = 0;
+                countR = 0;
                 res++;
             }
         }
